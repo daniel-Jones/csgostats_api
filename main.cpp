@@ -11,7 +11,10 @@ int main(int argc, char *argv[])
 		qDebug() << "stats setup correct";
 		qDebug() << "hours in game:" << stats.user.time_ingame;
 		qDebug() << "Total kills:" << stats.user.total_kills;
-		qDebug() << "ak47 k/d ratio:" << stats.user.weapons[0][5];
+		qDebug() << "ak47 shots/hits ratio:" << stats.user.weapons[0][4];
+		qDebug() << "last match mvps:" << stats.user.lastmatch[6];
+		for (int x = 0; x < 18; x++)
+			qDebug() << stats.user.lastmatch[x];
 	}
-	return a.exec();
+	return 0;
 }
