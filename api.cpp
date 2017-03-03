@@ -2,7 +2,6 @@
 
 api::api()
 {
-	qDebug() << "CS:GO stats api loaded";
 }
 
 bool api::setupstats(QString id)
@@ -128,5 +127,41 @@ QString api::getdata(QString option)
 		}
 		file.close();
 	}
+	return "empty";
+}
+QString api::getlastmatchstat(QString name)
+{
+	QString ret;
+	for (int x = 0; x < 19; x++)
+	{
+		if (name == user.lastkeys[x][0])
+		{
+			ret = user.lastmatch[x];
+			break;
+		}
+	}
+	if (ret == "")
+		ret = "none";
+	return ret;
+}
+QString api::getmapstat(QString map, QString stat)
+{
+	/*
+	QString ret;
+        for (int x = 0; x < 20; x++)
+        {
+                if (name == user.mapstats[x][0])
+                {
+                        ret = user.maps[x];
+                        break;
+                }
+        }
+        if (ret == "")
+                ret = "none";
+        return ret;
+	*/
+}
+QString api::getweaponstat(QString weapon, QString stat)
+{
 	return "empty";
 }
